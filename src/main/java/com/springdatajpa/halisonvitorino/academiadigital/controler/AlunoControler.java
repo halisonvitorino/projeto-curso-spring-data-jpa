@@ -17,7 +17,7 @@ public class AlunoControler {
     //public AlunoEntity create(@RequestBody AlunoForm form){
         //return service.create(form);
     //}
-    @GetMapping("/alunos")
+    @GetMapping("/alunos" )
     public List<AlunoEntity> getAll() {
         return service.getAll();
     }
