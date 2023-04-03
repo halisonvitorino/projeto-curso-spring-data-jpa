@@ -1,31 +1,38 @@
 package com.springdatajpa.halisonvitorino.academiadigital.service;
 
-import com.springdatajpa.halisonvitorino.academiadigital.entity.Aluno;
+import com.springdatajpa.halisonvitorino.academiadigital.entity.AlunoEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AlunoForm;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface AlunoService {
 
     //Criar aluno e salvar no banco
     //@param form - formulario com dados do aluno
     //@return - aluno criado
-    Aluno create(AlunoForm form);
+    AlunoEntity create(AlunoForm form);
 
     //Busca aluno no banco por id
     //@param id - id do aluno
     //@return - aluno retornado conforme id
-    Aluno get(Long id);
+    AlunoEntity get(Long id);
+
+    //Busca aluno no banco por nome
+    //@param nome - Nome do aluno
+    //@return - aluno retornado conforme id
+    //AlunoEntity get(String name);
 
     //Busca todos os alunos no banco
     //@return - lista de alunos
-    List<Aluno> getAll();
+    List<AlunoEntity> getAll();
 
     //Atualiza aluno no banco por id
     //@param id - id do aluno
     //@param formUpdadte - formulario com dados do aluno
     //@return - aluno retornado conforme id
-    Aluno update(Long id, AlunoForm formUpdate);
+    AlunoEntity update(Long id, AlunoForm formUpdate);
 
     //Apaga aluno por id
     //@param id - id do aluno
