@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 @EnableSwagger2
 public class SwaggerConfig {
-    private ApiInfoBuilder informacoesAPI() {
+    public ApiInfoBuilder informacoesAPI() {
 
         ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
         apiInfoBuilder
@@ -32,12 +32,13 @@ public class SwaggerConfig {
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
         docket
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.springdatajpa.halisonvitorino.academiadigital.controler"))
+                .apis(RequestHandlerSelectors.basePackage
+                        ("com.springdatajpa.halisonvitorino.academiadigital.controler"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(this.informacoesAPI().build())
                 .consumes(new HashSet<String>(Arrays.asList("application/json")))
-                .produces(new HashSet<String>(Arrays.asList("application/json")));
+                .produces(new HashSet<String>(Arrays.asList("application/json")))
+                .apiInfo(this.informacoesAPI().build());
         return docket;
     }
 }

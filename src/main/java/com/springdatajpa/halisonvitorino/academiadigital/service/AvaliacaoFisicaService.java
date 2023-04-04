@@ -3,9 +3,11 @@ package com.springdatajpa.halisonvitorino.academiadigital.service;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AvaliacaoFisicaForm;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AvaliacaoFisicaUpdateForm;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface AvaliacaoFisicaService {
 
     //Criar avaliacao e salvar no banco

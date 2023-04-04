@@ -1,10 +1,12 @@
 package com.springdatajpa.halisonvitorino.academiadigital.service;
 
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AlunoEntity;
+import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AlunoForm;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface AlunoService {
@@ -17,12 +19,12 @@ public interface AlunoService {
     //Busca aluno no banco por id
     //@param id - id do aluno
     //@return - aluno retornado conforme id
-    AlunoEntity get(Long id);
+    Optional<AlunoEntity> get(Long id);
 
     //Busca aluno no banco por nome
     //@param nome - Nome do aluno
     //@return - aluno retornado conforme id
-    //AlunoEntity get(String name);
+   //Optional<AlunoEntity> getAll(String name);
 
     //Busca todos os alunos no banco
     //@return - lista de alunos
@@ -32,9 +34,11 @@ public interface AlunoService {
     //@param id - id do aluno
     //@param formUpdadte - formulario com dados do aluno
     //@return - aluno retornado conforme id
-    AlunoEntity update(Long id, AlunoForm formUpdate);
+    AlunoEntity update(Long id, AlunoForm form);
 
     //Apaga aluno por id
     //@param id - id do aluno
     void delete (Long id);
+
+    List<AvaliacaoFisicaEntity> getAllAvaliacaoFisicaId(Long id);
 }
