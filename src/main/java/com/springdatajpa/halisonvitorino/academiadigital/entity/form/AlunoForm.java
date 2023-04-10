@@ -1,8 +1,13 @@
 package com.springdatajpa.halisonvitorino.academiadigital.entity.form;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -11,9 +16,20 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class AlunoForm {
 
+    @NotBlank(message = "Campo não pode estar em branco")
+    @Size(min = 3, max = 50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")
     private String name;
+
+    @NotBlank(message = "Campo não pode estar em branco")
+    @CPF(message = "'${validatedValue}' valor inválido.")
     private String cpf;
+
+    @NotBlank(message = "Campo não pode estar em branco")
+    @Size(min = 3, max = 50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")
     private String bairro;
+
+    @NotNull(message = "Campo não pode estar em branco")
+    @Past(message = "Data '${validatedValue}' inválida.")
     private LocalDate dataNascimento;
 
     public String getName() {

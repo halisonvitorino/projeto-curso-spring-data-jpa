@@ -3,6 +3,7 @@ package com.springdatajpa.halisonvitorino.academiadigital.service;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AlunoEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AlunoForm;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface AlunoService {
     //Busca aluno no banco por id
     //@param id - id do aluno
     //@return - aluno retornado conforme id
-    Optional<AlunoEntity> get(Long id);
+    Optional<AlunoEntity> get(Long id) throws ChangeSetPersister.NotFoundException;
 
     //Busca aluno no banco por nome
     //@param nome - Nome do aluno

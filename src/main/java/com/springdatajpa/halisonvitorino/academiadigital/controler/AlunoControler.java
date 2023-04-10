@@ -3,23 +3,25 @@ package com.springdatajpa.halisonvitorino.academiadigital.controler;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AlunoEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AlunoForm;
-import com.springdatajpa.halisonvitorino.academiadigital.service.AlunoService;
-import jakarta.persistence.PostUpdate;
+import com.springdatajpa.halisonvitorino.academiadigital.service.serviceimpl.AlunoServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+//Controller só gerencia o fluxo das informações.
+// Ela não deve conter regras de negocio e persistência em seu conteúdo.
 @RestController
 public class AlunoControler {
 
     @Autowired
-    private AlunoService alunoService;
+    private AlunoServiceImpl alunoServiceImpl;
 
     @PostMapping("/alunos")
-    public AlunoEntity create(@RequestBody AlunoForm form){
-        return alunoService.create(form);
+    public AlunoEntity create(@Valid @RequestBody AlunoForm form){
+        return alunoServiceImpl.create(form);
     }
 
     //@PutMapping("/alunos/{id}")
@@ -29,22 +31,22 @@ public class AlunoControler {
 
     @GetMapping("/alunos")
     public List<AlunoEntity> getAll() {
-        return alunoService.getAll();
+        return alunoServiceImpl.getAll();
     }
 
     @GetMapping("/alunos/{id}" )
     public Optional<AlunoEntity> getOne(@PathVariable long id) {
-        return alunoService.get(id);
+        return alunoServiceImpl.get(id);
     }
 
     @GetMapping("/alunos/avaliacoes/{id}" )
     public List<AvaliacaoFisicaEntity> getAllAvaliacaoFisicaId(@PathVariable long id){
-        return alunoService.getAllAvaliacaoFisicaId(id);
+        return alunoServiceImpl.getAllAvaliacaoFisicaId(id);
     }
 
     @DeleteMapping("/alunos/{id}")
     public AlunoEntity delete(@PathVariable long id) {
-        alunoService.delete(id);
+        alunoServiceImpl.delete(id);
         return null;
     }
 }

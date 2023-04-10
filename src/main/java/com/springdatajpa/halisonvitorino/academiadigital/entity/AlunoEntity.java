@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Data               //provê getters, setters, etc
+@NoArgsConstructor  //construtor vazio
+@AllArgsConstructor //construtor completo
 @Entity
 @Table(name = "tb_alunos" )
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -21,13 +22,17 @@ public class AlunoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    @Column(unique = true)
+
+    @Column(unique = true) //nao permite repetir cpf's
     private String cpf;
+
     private String bairro;
+
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "alunoEntity", fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(mappedBy = "alunoEntity", fetch = FetchType.LAZY) //carrega alunos mas nao carrega avaliações
+    @JsonIgnore                                                  //ignora erros json
     private List<AvaliacaoFisicaEntity> avaliacoes = new ArrayList<>();
 }

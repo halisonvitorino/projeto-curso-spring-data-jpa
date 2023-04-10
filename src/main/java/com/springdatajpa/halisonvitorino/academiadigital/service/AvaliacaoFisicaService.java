@@ -1,11 +1,11 @@
 package com.springdatajpa.halisonvitorino.academiadigital.service;
-
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AvaliacaoFisicaForm;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AvaliacaoFisicaUpdateForm;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface AvaliacaoFisicaService {
@@ -18,7 +18,7 @@ public interface AvaliacaoFisicaService {
     //Busca avaliacao no banco por id
     //@param id - id da avaliacao
     //@return - avaliacao retornado conforme id
-    AvaliacaoFisicaEntity get(Long id);
+    Optional<AvaliacaoFisicaEntity> get(Long id);
 
     //Busca todos os avaliacao no banco
     //@return - lista de avaliacao

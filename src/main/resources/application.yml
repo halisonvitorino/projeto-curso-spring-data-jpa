@@ -9,4 +9,9 @@ spring:
     generate-ddl: true
     show-sql: true
     hibernate.format_sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
 

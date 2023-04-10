@@ -17,6 +17,10 @@ public class AlunoServiceImpl implements AlunoService {
     @Autowired
     private AlunoRepository alunoRepository;
 
+    public AlunoServiceImpl(AlunoRepository alunoRepository) {
+        this.alunoRepository = alunoRepository;
+    }
+
     @Override
     public AlunoEntity create(AlunoForm form) {
         AlunoEntity aluno = new AlunoEntity();

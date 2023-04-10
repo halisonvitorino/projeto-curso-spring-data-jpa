@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
@@ -23,11 +24,14 @@ public class AvaliacaoFisicaEntity {
     @JoinColumn(name = "aluno_id")
     private AlunoEntity alunoEntity;
 
-    private LocalDateTime dataAvaliacao = LocalDateTime.now();
+    private LocalDateTime dataAvaliacao = LocalDate.now().atStartOfDay();
 
     @Column(name = "peso_atual")
     private double peso;
 
     @Column(name = "altura_atual")
     private double altura;
+
+    @Column(name = "Imc_atual")
+    private double imc;
 }

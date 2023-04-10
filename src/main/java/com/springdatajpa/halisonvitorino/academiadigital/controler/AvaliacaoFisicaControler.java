@@ -2,11 +2,9 @@ package com.springdatajpa.halisonvitorino.academiadigital.controler;
 
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.AvaliacaoFisicaForm;
-import com.springdatajpa.halisonvitorino.academiadigital.service.AvaliacaoFisicaService;
 import com.springdatajpa.halisonvitorino.academiadigital.service.serviceimpl.AvaliacaoFisicaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,11 +12,11 @@ import java.util.Optional;
 public class AvaliacaoFisicaControler {
 
     @Autowired
-    private AvaliacaoFisicaService avaliacaoFisicaService;
+    private AvaliacaoFisicaServiceImpl avaliacaoFisicaServiceImpl;
 
     @PostMapping("/avaliacoes")
     public AvaliacaoFisicaEntity create(@RequestBody AvaliacaoFisicaForm form){
-        return avaliacaoFisicaService.create(form);
+        return avaliacaoFisicaServiceImpl.create(form);
     }
 
     //@PutMapping("/avaliacoes/{id}")
@@ -28,17 +26,17 @@ public class AvaliacaoFisicaControler {
 
     @GetMapping("/avaliacoes")
     public List<AvaliacaoFisicaEntity> getAll() {
-        return avaliacaoFisicaService.getAll();
+        return avaliacaoFisicaServiceImpl.getAll();
     }
 
     @GetMapping("/avaliacoes/{id}" )
     public Optional<AvaliacaoFisicaEntity> getOne(@PathVariable long id) {
-        return Optional.ofNullable(avaliacaoFisicaService.get(id));
+        return avaliacaoFisicaServiceImpl.get(id);
     }
 
     @DeleteMapping("/avaliacoes/{id}")
     public AvaliacaoFisicaEntity delete(@PathVariable long id) {
-        avaliacaoFisicaService.delete(id);
+        avaliacaoFisicaServiceImpl.delete(id);
         return null;
     }
 }
