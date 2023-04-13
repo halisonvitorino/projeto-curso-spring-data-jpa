@@ -29,8 +29,8 @@ public class AlunoForm {
     private String bairro;
 
     @NotNull(message = "Campo não pode estar em branco")
-    @Past(message = "Data '${validatedValue}' inválida.")
-    private LocalDate dataNascimento;
+    //@Past(message = "Data '${validatedValue}' inválida.")
+    private String dataNascimento;
 
     public String getName() {
         return name;
@@ -50,10 +50,10 @@ public class AlunoForm {
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

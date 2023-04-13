@@ -34,6 +34,12 @@ public class AlunoControler {
         return alunoServiceImpl.getAll();
     }
 
+    //busca específica por data de nascimento
+    @GetMapping("/alunos/")
+    public List<AlunoEntity> getALLDataNascimento(@RequestParam(value = "dataNascimento") String dataNascimento){
+        return alunoServiceImpl.getAllDataNascimento(dataNascimento);
+    }
+
     @GetMapping("/alunos/{id}" )
     public Optional<AlunoEntity> getOne(@PathVariable long id) {
         return alunoServiceImpl.get(id);

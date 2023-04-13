@@ -1,5 +1,6 @@
 package com.springdatajpa.halisonvitorino.academiadigital.service.serviceimpl;
 
+import com.springdatajpa.halisonvitorino.academiadigital.document.utils.JavaTimeUtils;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AvaliacaoFisicaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.repository.AlunoRepository;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.AlunoEntity;
@@ -8,7 +9,11 @@ import com.springdatajpa.halisonvitorino.academiadigital.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -46,7 +51,6 @@ public class AlunoServiceImpl implements AlunoService {
         AlunoEntity alunoAlterado = alunoRepository.findById(id).get();
         alunoAlterado.setName(form.getName());
         alunoAlterado.setBairro(form.getBairro());
-        alunoAlterado.setDataNascimento(form.getDataNascimento());
         return alunoRepository.save(alunoAlterado);
     }
 
@@ -59,5 +63,11 @@ public class AlunoServiceImpl implements AlunoService {
     public List<AvaliacaoFisicaEntity> getAllAvaliacaoFisicaId(Long id) {
         AlunoEntity aluno = alunoRepository.findById(id).get();
         return aluno.getAvaliacoes();
+    }
+
+    @Override
+    public List<AlunoEntity> getAllDataNascimento(String dataNascimento) {
+            return alunoRepository.findByDataNascimento(dataNascimento);
+
     }
 }

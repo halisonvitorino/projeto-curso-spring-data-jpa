@@ -31,6 +31,9 @@ public interface AlunoService {
     //@return - lista de alunos
     List<AlunoEntity> getAll();
 
+    //Busca todos os alunos no banco pela data do nascimento
+    List<AlunoEntity> getAllDataNascimento(String dataNascimento);
+
     //Atualiza aluno no banco por id
     //@param id - id do aluno
     //@param formUpdadte - formulario com dados do aluno

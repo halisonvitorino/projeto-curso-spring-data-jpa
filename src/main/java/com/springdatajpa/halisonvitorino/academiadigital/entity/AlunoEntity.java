@@ -30,7 +30,7 @@ public class AlunoEntity {
 
     private String bairro;
 
-    private LocalDate dataNascimento;
+    private String dataNascimento;
 
     @OneToMany(mappedBy = "alunoEntity", fetch = FetchType.LAZY) //carrega alunos mas nao carrega avaliações
     @JsonIgnore                                                  //ignora erros json

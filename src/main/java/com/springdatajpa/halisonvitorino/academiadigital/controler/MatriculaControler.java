@@ -2,7 +2,6 @@ package com.springdatajpa.halisonvitorino.academiadigital.controler;
 
 import com.springdatajpa.halisonvitorino.academiadigital.entity.MatriculaEntity;
 import com.springdatajpa.halisonvitorino.academiadigital.entity.form.MatriculaForm;
-import com.springdatajpa.halisonvitorino.academiadigital.service.MatriculaService;
 import com.springdatajpa.halisonvitorino.academiadigital.service.serviceimpl.MatriculaServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
